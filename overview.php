@@ -10,12 +10,12 @@ ini_set('max_execution_time', 300);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta content="Benchmarks" property="og:title">
-    <meta content="Benchmarks and comparison of cloud game streaming providers" property="og:description">
+    <meta content="Benchmarks and comparison of VPS providers" property="og:description">
     <meta content="https://vps.benji.link" property="og:url">
     <meta content="/assets/controller.png" property="og:image">
     <meta content="#5a43b5" data-react-helmet="true" name="theme-color">
    
-    <title>Benchmarks of Game Streaming Providers</title>
+    <title>Benchmarks of VPS Providers</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
