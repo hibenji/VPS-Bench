@@ -143,18 +143,23 @@ ini_set('max_execution_time', 300);
 			Yabs output:
 		</h3>
 		<div class="columns">
-			<?php
+			<div class="column">
+				<?php
 
 
-			$yabs_link = $row["yabs"];
-			$yabs = file_get_contents($yabs_link);
-			// replace space with &nbsp
-			$yabs = str_replace(" ", "&ensp;", $yabs);
-			$yabs = nl2br($yabs);
-		
-
-			echo $yabs;
-			?>
+				$yabs_link = $row["yabs"];
+				// check if empty
+				if(empty($yabs_link)){
+					echo "No YABS test yet";
+				} else {			
+					$yabs = file_get_contents($yabs_link);
+					// replace space with &nbsp
+					$yabs = str_replace(" ", "&ensp;", $yabs);
+					$yabs = nl2br($yabs);
+					echo $yabs;
+				}	
+				?>
+			</div>
 
 		</div>
 
