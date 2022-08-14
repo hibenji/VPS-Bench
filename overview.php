@@ -80,43 +80,28 @@ ini_set('max_execution_time', 300);
 				<p class="content is-large"><strong><?php echo $row["price"]; ?>$</strong></p>
 			</div>
 			<div class="column">
-				FPS:
+				Single Core Geekbench:
 				<br>
-				<?php
+				<p class="content is-large"><strong><?php echo $row["single"]; ?></strong></p>
 
-				if($row["fps"] < 30) {
-					echo "<span class='tag is-danger is-large'>";
-				} else if($row["fps"] < 60) {
-					echo "<span class='tag is-warning is-large'>";
-				} else {
-					echo "<span class='tag is-success is-large'>";
-				}
-				?>
+			</div>
+			<div class="column">
+				Multi Core Geekbench:
+				<br>
+				<p class="content is-large"><strong><?php echo $row["multi"]; ?></strong></p>
 
-				<p class="content is-large"><?php echo $row["fps"]; ?></p>
+			</div>
+			<div class="column">
+				CPU/$:
+				<br>
+				<span class='tag is-primary is-large'>
+				<p class="content is-large"><strong><?php echo round($row["multi"]/$row["price"]); ?></strong></p>
 				</span>
 			</div>
 			<div class="column">
-				RTX-FPS:
+				Architecture:
 				<br>
-				<?php
-
-				if($row["rtx-fps"] < 30) {
-					echo "<span class='tag is-danger is-large'>";
-				} else if($row["rtx-fps"] < 60) {
-					echo "<span class='tag is-warning is-large'>";
-				} else {
-					echo "<span class='tag is-success is-large'>";
-				}
-				?>
-
-				<p class="content is-large"><?php echo $row["rtx-fps"]; ?></p>
-				</span>
-			</div>
-			<div class="column">
-			Locations:
-			<br>
-			<p class="content is-large"><?php echo $row["locations"]; ?></p>
+				<p class="content is-large"><strong><?php echo $row["architecture"] ?></strong></p>
 			</div>
 		</div>
 
@@ -127,7 +112,7 @@ ini_set('max_execution_time', 300);
 			<div class="column">
 				vCores:
 				<br>
-				<p class="content is-large"><strong><?php echo $row["vcores"]; ?></strong></p>
+				<p class="content is-large"><strong><?php echo $row["vcpu"]; ?></strong></p>
 			</div>
 			<div class="column">
 				RAM:
@@ -135,14 +120,19 @@ ini_set('max_execution_time', 300);
 				<p class="content is-large"><strong><?php echo $row["ram"]; ?></strong></p>
 			</div>
 			<div class="column">
-				<span><abbr title="How much?/Is it Persitant?">Storage:</span>
+				Storage:
 				<br>
 				<p class="content is-large"><strong><?php echo $row["storage"]; ?></strong></p>
 			</div>
 			<div class="column">
-				GPU:
+				Downlink:
 				<br>
-				<p class="content is-large"><strong><?php echo $row["gpu"]; ?></strong></p>
+				<p class="content is-large"><strong><?php echo $row["down"]; ?></strong></p>
+			</div>
+			<div class="column">
+				Uplink:
+				<br>
+				<p class="content is-large"><strong><?php echo $row["up"]; ?></strong></p>
 			</div>
 		</div>
 
@@ -150,23 +140,22 @@ ini_set('max_execution_time', 300);
 
 		<!-- images -->
 		<h3 class="title is-4">
-			Screenshot of the Benchmark
+			Yabs output:
 		</h3>
 		<div class="columns">
-			<div class="column">
-				NON RTX:
-				<br>
-				<figure class="image is-16by9">
-					<img src="<?php echo $row["ss-non"]; ?>" alt="NON RTX">
-				</figure>
-			</div>
-			<div class="column">
-				RTX:
-				<br>
-				<figure class="image is-16by9">
-					<img src="<?php echo $row["ss-rtx"]; ?>" alt="RTX">
-				</figure>
-			</div>
+			<?php
+
+
+			$yabs_link = $row["yabs"];
+			$yabs = file_get_contents($yabs_link);
+			// replace space with &nbsp
+			$yabs = str_replace(" ", "&ensp;", $yabs);
+			$yabs = nl2br($yabs);
+		
+
+			echo $yabs;
+			?>
+
 		</div>
 
 		<?php
@@ -177,13 +166,6 @@ ini_set('max_execution_time', 300);
       }
       ?>
   
-    </div>
-  </section>
-  <section class="section">
-    <div class="container">
-      <i class="fa fa-italic">*more storage can be added at setup</i> <br>
-      <i class="fa fa-italic">**BYOG = Bring your own Games</i> <br>
-      <i class="fa fa-italic">***GFN = Geforce Now</i>
     </div>
   </section>
 
