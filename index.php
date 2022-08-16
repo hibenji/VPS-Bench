@@ -78,14 +78,15 @@ ini_set('max_execution_time', 300);
       <th onclick="sortTable(3)">Payment</th>
       <th onclick="sortTable(4)">Single</th>
       <th onclick="sortTable(5)">Multi</th>
-      <th onclick="sortTable(6)">CPU/$</th>
-      <th onclick="sortTable(7)">Yabs</th>
-      <th onclick="sortTable(8)">RAM</th>
-      <th onclick="sortTable(9)"><abbr title="vCores">CPU</th>
-      <th onclick="sortTable(10)">Storage</th>
-      <th onclick="sortTable(11)">Downlink</th>
-      <th onclick="sortTable(12)">Uplink</th>
-      <th onclick="sortTable(13)">Architecture</th>
+      <th onclick="sortTable(6)"><abbr title="Multi Core to Price">CPU/$</th>
+      <th onclick="sortTable(7)"><abbr title="Single Core to Price">CPU/$</th>
+      <th onclick="sortTable(8)">Yabs</th>
+      <th onclick="sortTable(9)">RAM</th>
+      <th onclick="sortTable(10)"><abbr title="vCores">CPU</th>
+      <th onclick="sortTable(11)">Storage</th>
+      <th onclick="sortTable(12)">Downlink</th>
+      <th onclick="sortTable(13)">Uplink</th>
+      <th onclick="sortTable(14)">Architecture</th>
       <th><abbr title="Just some more random info">Extra Info</th>
     </tr>
   </thead>
@@ -105,6 +106,7 @@ ini_set('max_execution_time', 300);
               <td>" . $row["single"]. "</td>
               <td>" . $row["multi"]. "</td>
               <td><b>" . round($row["multi"]/$row["price"]). "</b></td>
+              <td><b>" . round($row["single"]/$row["price"]). "</b></td>
               <td>";
               
               if($row["yabs"] == ""){
