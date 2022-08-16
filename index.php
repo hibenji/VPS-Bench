@@ -105,7 +105,16 @@ ini_set('max_execution_time', 300);
               <td>" . $row["single"]. "</td>
               <td>" . $row["multi"]. "</td>
               <td><b>" . round($row["multi"]/$row["price"]). "</b></td>
-              <td><a href='" . $row["yabs"]. "' target='_blank'>Yabs</a></td>
+              <td>";
+              
+              if($row["yabs"] == ""){
+                echo "N/A";
+              } else {
+                echo " <a href='" . $row["yabs"]. "' target='_blank'>Yabs</a>";
+              }
+
+              echo "
+              </td>
               <td>" . $row["ram"]. "</td>
               <td>" . $row["vcpu"]. "</td>
               <td>" . $row["storage"]. "</td>
