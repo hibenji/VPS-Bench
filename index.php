@@ -100,7 +100,7 @@ ini_set('max_execution_time', 300);
 
               echo "
               <tr>
-              <td><a href='overview.php?type=hourly&id=" . $row["id"]. "'>" . $row["name"]. "</td>
+              <td><a href='overview.php?id=" . $row["id"]. "'>" . $row["name"]. "</td>
               <td>" . $row["price"]. "$/Month</td>
               <td><a href='" . $row["link"]. "' target='_blank'>Link</a></td>
               <td>" . $row["payment"]. "</td>
