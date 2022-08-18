@@ -64,7 +64,8 @@ ini_set('max_execution_time', 300);
       All Benchmarks used YABS:<br>
       <a href="https://github.com/masonr/yet-another-bench-script">https://github.com/masonr/yet-another-bench-script</a>
       
-
+      <br><br>
+      <i><small>Click the headers to sort the table.</small></i>
       </p>
       <hr>
     

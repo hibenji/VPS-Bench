@@ -92,8 +92,8 @@ ini_set('max_execution_time', 300);
 
 			</div>
 			<div class="column">
-				CPU/$:
-				<br>
+				<div><abbr title="Multi Core to Price">CPU/$:</div>
+
 				<span class='tag is-primary is-large'>
 				<p class="content is-large"><strong><?php echo round($row["multi"]/$row["price"]); ?></strong></p>
 				</span>
@@ -146,17 +146,14 @@ ini_set('max_execution_time', 300);
 			<div class="column">
 				<?php
 
-
 				$yabs_link = $row["yabs"];
-				// check if empty
 				if(empty($yabs_link)){
 					echo "No YABS test yet";
-				} else {			
+				} else {
+					echo "<xmp>";
 					$yabs = file_get_contents($yabs_link);
-					// replace space with &nbsp
-					$yabs = str_replace(" ", "&ensp;", $yabs);
-					$yabs = nl2br($yabs);
 					echo $yabs;
+					echo "</xmp>";
 				}	
 				?>
 			</div>
